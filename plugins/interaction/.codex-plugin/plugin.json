@@ -1,6 +1,6 @@
 {
   "name": "interaction",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Communication toolkit for burnt-out humans and collaborative AI's",
   "author": {
     "name": "Gilad Barnea",
@@ -8,6 +8,7 @@
   },
   "homepage": "https://github.com/giladbarnea/interaction",
   "repository": "https://github.com/giladbarnea/interaction",
+  "license": "MIT",
   "keywords": [
     "communication",
     "delegation",

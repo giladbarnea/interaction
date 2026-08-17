@@ -2,6 +2,10 @@
 
 **Communication toolkit for burnt-out humans and collaborative AI's.**
 
+[![Release](https://img.shields.io/github/v/release/giladbarnea/interaction?style=flat-square&color=111111&label=release)](https://github.com/giladbarnea/interaction/releases/latest)
+![Works with Claude Code, Codex, and Pi](https://img.shields.io/badge/works%20with-Claude%20Code%20%7C%20Codex%20%7C%20Pi-111111?style=flat-square)
+[![MIT license](https://img.shields.io/badge/license-MIT-111111?style=flat-square)](LICENSE)
+
 ## Four skills keep the work usable
 
 - `ai-to-human` makes answers clear and restores cold context.
@@ -72,3 +76,7 @@ The host can also load a skill when its description matches the task.
 Interaction has no MCP server, executable code, network calls, hooks, or background process. Your laptop can remain disappointed by the missing daemon.
 
 Pi installs each skill separately, so its release contains self-contained references. See [`pi/README.md`](pi/README.md) for the layout.
+
+## License
+
+[MIT](LICENSE). Use it, change it, and share it.
