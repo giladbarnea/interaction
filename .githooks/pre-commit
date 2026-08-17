@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+readonly REPOSITORY_ROOT="$(git rev-parse --show-toplevel)"
+
+"$REPOSITORY_ROOT/build-plugins.sh"
+git -C "$REPOSITORY_ROOT" add --all -- pi/skills plugins/interaction/LICENSE

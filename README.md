@@ -79,6 +79,12 @@ Interaction has no MCP server, executable code, network calls, hooks, or backgro
 
 Pi installs each skill separately, so its release contains self-contained references. See [`pi/README.md`](pi/README.md) for the layout.
 
+## Develop from one source
+
+`plugins/interaction` is the canonical content. `./build-plugins.sh` generates tracked `pi/skills` and ignored `interaction-pi-skills.zip`.
+
+The build also copies the root `LICENSE` into the plugin. The `.githooks/pre-commit` hook runs the build and stages generated tracked files.
+
 ## License
 
 [MIT](LICENSE). Use it, change it, and share it.
