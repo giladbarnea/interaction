@@ -2,7 +2,7 @@
 
 ![Late-shift desk with a terminal showing trusted AI delegation](assets/interaction-banner.png)
 
-**Communication toolkit for burnt-out humans and collaborative AI's.**
+> **Communication toolkit for burnt-out humans and collaborative AI's.**
 
 [![Release](https://img.shields.io/github/v/release/giladbarnea/interaction?style=flat-square&color=111111&label=release)](https://github.com/giladbarnea/interaction/releases/latest)
 ![Works with Claude Code, Codex, and Pi](https://img.shields.io/badge/works%20with-Claude%20Code%20%7C%20Codex%20%7C%20Pi-111111?style=flat-square)
@@ -12,30 +12,39 @@
 
 - **`ai-to-human`** makes answers clear and simple.
 - **`ai-to-ai`** makes delegation and collaboration work.
-- **`handoff`** carries decisions, tacit knowledge and “why” into the next session.
+- **`handoff`** carries decisions, tacit knowledge and "why" into the next session.
 - **`peer-review`** collapses complexity like tetris blocks.
 
-**When nobody can explain it, delegate it, resume it, or review it, it's not working.**
+**When nobody can understand it, delegate it, resume it, or review it, it's not working.**
 
-## Context should survive context switching
+## Pleasant to the brain
 
-`ai-to-human` uses ASD-STE-100, plain language and stable names. It assumes the human has one brain, and is juggling work, family, and a dozen unfinished AI projects.
+`ai-to-human`: 
+- uses ASD-STE-100, plain language and stable names.
+- assumes the human has one brain, and is juggling work, family, and a dozen unfinished AI projects.
 
-## Delegation should reduce work
+## Delegation that doesn't suck
 
-`ai-to-ai` helps agents choose between subagents and teams. It gives delegates enough context without scripting their every move.
+`ai-to-ai`:
+- makes AI delegate, not micro manage.
+- teaches trust, avoiding biasing your directs, and how to scope parallel work effectively.
+- teaches sub-agents how to manage up their main.
+- teaches main signal vs noise: what to surface to the human and what to solve without making a fuss.
 
-## Handoffs should preserve judgment
+## Handoffs that preserve judgment
 
-`handoff` captures state, decisions, failed paths, and necessary next steps. A transcript dump is not a handoff, even when it is impressively long.
+`handoff`:
+- captures intent, pitfalls, decisions and the rationale behind them.
+- leads the next agent from a fresh spawn to a fully onboarded replacement.
 
-## Reviews should earn attention
+## Reviews that simplify
 
-`peer-review` studies the requirements and blast radius first. It reports consequential bugs, missed constraints, complexity, and scope drift.
+`peer-review`:
+- studies the work with a fresh set of eyes and a wide look.
+- reports proven issues.
+- points out opportunities to collapse complexity, remove code, and gain elegance.
 
-## Install all four skills
-
-Three hosts, three installation paths. Standardization had other plans.
+## Install
 
 ### Claude Code
 
@@ -62,22 +71,51 @@ unzip interaction-pi-skills.zip -d ~/.pi/agent/skills
 
 Start a new Pi session after installation.
 
-## Ask for a skill directly
+## Usage examples
 
-```text
-Load ai-to-human and bring me back into the project.
-Load ai-to-ai before delegating this research.
-Use handoff to prepare the next session.
-Use peer-review to review the completed work.
+**`ai-to-user`:**
+
+```
+# User:
+
+  /ai-to-human i have had a long day. what are you talking about
+
+
+# Assistant:
+  
+  We've been designing a plugin that makes AI's effective communicators.
+
+  It packages four skills: `ai-to-human`, `ai-to-ai`, `handoff`, and `peer-review`.
+
+  The four skills map cleanly to four critical interaction needs: clarity, delegation, continuity, and quality.
+
+  The plugin is almost ready for release. I only need your decision on how to package it for Pi, since Pi does not support plugins natively.
+  
+  I can either package it as a single `interaction` skill, or as four separate skills. Which do you prefer?
 ```
 
-The host can also load a skill when its description matches the task.
+**`ai-to-ai`:**
+```
+# User:
 
-## Only Markdown, no mystery
+  study the plan and implement it. delegate work.
 
-Interaction has no MCP server, executable code, network calls, hooks, or background process. Your laptop can remain disappointed by the missing daemon.
+# Assistant:
 
-Pi installs each skill separately, so its release contains self-contained references. See [`pi/README.md`](pi/README.md) for the layout.
+  [loaded skill: `ai-to-ai`]
+
+  I’ll assign research, implementation and review to separate sub-agents. This will prevent biasing the process.
+
+  I will only surface issues that need your attention. Finally, I will plainly summarize the end result.
+
+  Go take a break. We’ll manage.
+```
+
+## Only Markdown
+
+`interaction` has no MCP server, executable code, network calls, hooks, or background process. Your laptop can remain disappointed by the missing daemon.
+
+Pi installs each skill separately, because Pi does not support plugins natively. Its release contains self-contained references. See [`pi/README.md`](pi/README.md) for the layout.
 
 ## Develop from one source
 
@@ -87,4 +125,4 @@ The build also copies the root `LICENSE` into the plugin. The `.githooks/pre-com
 
 ## License
 
-[MIT](LICENSE). Use it, change it, and share it.
+[MIT](LICENSE).
