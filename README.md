@@ -1,5 +1,7 @@
 # Interaction
 
+![Interaction desk with “context received” on the screen](assets/interaction-banner.png)
+
 **Communication toolkit for burnt-out humans and collaborative AI's.**
 
 [![Release](https://img.shields.io/github/v/release/giladbarnea/interaction?style=flat-square&color=111111&label=release)](https://github.com/giladbarnea/interaction/releases/latest)
