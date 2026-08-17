@@ -1,6 +1,6 @@
 # Interaction
 
-![Interaction desk with “context received” on the screen](assets/interaction-banner.png)
+![Late-shift desk with a terminal showing trusted AI delegation](assets/interaction-banner.png)
 
 **Communication toolkit for burnt-out humans and collaborative AI's.**
 
@@ -10,16 +10,16 @@
 
 ## Four skills keep the work usable
 
-- `ai-to-human` makes answers clear and restores cold context.
-- `ai-to-ai` makes delegation worth the context it costs.
-- `handoff` carries decisions into the next session.
-- `peer-review` finds material problems without manufacturing noise.
+- **`ai-to-human`** makes answers clear and simple.
+- **`ai-to-ai`** makes delegation and collaboration work.
+- **`handoff`** carries decisions, tacit knowledge and “why” into the next session.
+- **`peer-review`** collapses complexity like tetris blocks.
 
-**Good work is fragile when nobody can explain it, delegate it, resume it, or review it.**
+**When nobody can explain it, delegate it, resume it, or review it, it's not working.**
 
 ## Context should survive context switching
 
-`ai-to-human` uses plain language and stable names. It re-establishes the situation before returning to detail. Apparently, a correct answer still needs to be readable.
+`ai-to-human` uses ASD-STE-100, plain language and stable names. It assumes the human has one brain, and is juggling work, family, and a dozen unfinished AI projects.
 
 ## Delegation should reduce work
 
