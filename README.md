@@ -2,31 +2,34 @@
 
 **Communication toolkit for burnt-out humans and collaborative AI's.**
 
-A technically correct answer can still be difficult to use. The user returns after two days and cannot retrieve the latest thread. An agent delegates work but spends more context managing delegates than doing the work. A handoff records activity but loses the decisions that matter. A review produces many observations but no useful signal.
+## Four skills keep the work usable
 
-Interaction packages four Markdown skills for these ordinary failure modes. They help agents communicate clearly, delegate with purpose, preserve context across sessions, and review work without creating noise.
+- `ai-to-human` makes answers clear and restores cold context.
+- `ai-to-ai` makes delegation worth the context it costs.
+- `handoff` carries decisions into the next session.
+- `peer-review` finds material problems without manufacturing noise.
 
-## Good work must survive context switching
+**Good work is fragile when nobody can explain it, delegate it, resume it, or review it.**
 
-`ai-to-human` treats communication as part of the work. It favors short common words, stable names, active voice, and sentences that carry one idea. When recent context has gone cold, it re-establishes the wider situation, the motivation, and the latest progress before returning to detail.
+## Context should survive context switching
 
-This is not only a writing style. It reduces the cost of returning to a project after switching between several sessions.
+`ai-to-human` uses plain language and stable names. It re-establishes the situation before returning to detail. Apparently, a correct answer still needs to be readable.
 
-## Delegation should create headroom
+## Delegation should reduce work
 
-`ai-to-ai` explains when delegation saves context and when it only adds management overhead. It distinguishes isolated subagents from collaborating teams, and it favors prompts that provide the goal and necessary context without prescribing the implementation.
+`ai-to-ai` helps agents choose between subagents and teams. It gives delegates enough context without scripting their every move.
 
-Its references cover delegation shapes, team roles, context management, and communication between agents with different knowledge.
+## Handoffs should preserve judgment
 
-## A handoff should transfer judgment
+`handoff` captures state, decisions, failed paths, and necessary next steps. A transcript dump is not a handoff, even when it is impressively long.
 
-`handoff` writes a cold-entry continuation brief for a fresh session. It preserves the current state, decisions, failed approaches, important discoveries, and necessary next steps. It references existing artifacts instead of copying them into a second source of truth.
+## Reviews should earn attention
 
-## Peer review should find material problems
+`peer-review` studies the requirements and blast radius first. It reports consequential bugs, missed constraints, complexity, and scope drift.
 
-`peer-review` asks a reviewer to understand the requirements and the full blast radius before judging completed work. It sets a high reporting threshold, so the review focuses on consequential bugs, missed constraints, unnecessary complexity, and scope drift.
+## Install all four skills
 
-## Install all four skills together
+Three hosts, three installation paths. Standardization had other plans.
 
 ### Claude Code
 
@@ -53,28 +56,19 @@ unzip interaction-pi-skills.zip -d ~/.pi/agent/skills
 
 Start a new Pi session after installation.
 
-## The skills remain distinct
-
-The package installs four skills:
-
-| Skill | Use it for |
-|---|---|
-| `ai-to-human` | Clear user communication and context re-grounding |
-| `ai-to-ai` | Delegation, subagents, agent teams, and AI-facing documents |
-| `handoff` | Continuation briefs for a fresh session |
-| `peer-review` | Focused review of completed work |
-
-The host can load a skill when its description matches the task. You can also ask directly:
+## Ask for a skill directly
 
 ```text
-Load ai-to-ai before delegating this research.
 Load ai-to-human and bring me back into the project.
+Load ai-to-ai before delegating this research.
 Use handoff to prepare the next session.
 Use peer-review to review the completed work.
 ```
 
-## Nothing runs in the background
+The host can also load a skill when its description matches the task.
 
-Interaction contains Markdown instructions and references. It has no MCP server, executable code, network calls, lifecycle hooks, or background process.
+## Only Markdown, no mystery
 
-Claude and Codex preserve the shared plugin layout. Pi installs each skill separately, so the Pi release copies shared references into each dependent skill. See [`pi/README.md`](pi/README.md) for that layout.
+Interaction has no MCP server, executable code, network calls, hooks, or background process. Your laptop can remain disappointed by the missing daemon.
+
+Pi installs each skill separately, so its release contains self-contained references. See [`pi/README.md`](pi/README.md) for the layout.
