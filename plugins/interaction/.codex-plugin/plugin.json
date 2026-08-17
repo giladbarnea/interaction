@@ -1,0 +1,26 @@
+{
+  "name": "interaction",
+  "version": "1.0.0",
+  "description": "Communication toolkit for burnt-out humans and collaborative AI's",
+  "author": {
+    "name": "Gilad Barnea",
+    "url": "https://github.com/giladbarnea"
+  },
+  "homepage": "https://github.com/giladbarnea/interaction",
+  "repository": "https://github.com/giladbarnea/interaction",
+  "keywords": [
+    "communication",
+    "delegation",
+    "handoff",
+    "peer-review",
+    "agents"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Interaction",
+    "shortDescription": "Communication toolkit for burnt-out humans and collaborative AI's",
+    "longDescription": "Communication toolkit for burnt-out humans and collaborative AI's",
+    "developerName": "Gilad Barnea",
+    "category": "Productivity"
+  }
+}

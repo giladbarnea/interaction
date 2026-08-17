@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "interaction",
+  "description": "Communication toolkit for burnt-out humans and collaborative AI's",
+  "owner": {
+    "name": "Gilad Barnea",
+    "url": "https://github.com/giladbarnea"
+  },
+  "plugins": [
+    {
+      "name": "interaction",
+      "source": "./plugins/interaction",
+      "description": "Communication toolkit for burnt-out humans and collaborative AI's",
+      "category": "productivity"
+    }
+  ]
+}
