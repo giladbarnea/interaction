@@ -10,8 +10,8 @@
 
 ## Four skills keep the work usable
 
-- **`ai-to-human`** makes answers clear and simple.
-- **`ai-to-ai`** makes delegation and collaboration work.
+- **`ai-to-leader`** makes answers to your leader — human or AI — clear and simple.
+- **`ai-to-delegated`** makes delegation and collaboration work.
 - **`handoff`** carries decisions, tacit knowledge and "why" into the next session.
 - **`peer-review`** collapses complexity like tetris blocks.
 
@@ -19,17 +19,17 @@
 
 ## Pleasant to the brain
 
-`ai-to-human`: 
+`ai-to-leader`: 
 - uses ASD-STE-100, plain language and stable names.
 - assumes the human has one brain, and is juggling work, family, and a dozen unfinished AI projects.
+- teaches sub-agents how to manage up their main.
+- teaches signal vs noise: what to surface to your leader and what to solve without making a fuss.
 
 ## Delegation that doesn't suck
 
-`ai-to-ai`:
+`ai-to-delegated`:
 - makes AI delegate, not micro manage.
 - teaches trust, avoiding biasing your directs, and how to scope parallel work effectively.
-- teaches sub-agents how to manage up their main.
-- teaches main signal vs noise: what to surface to the human and what to solve without making a fuss.
 
 ## Handoffs that preserve judgment
 
@@ -73,19 +73,19 @@ Start a new Pi session after installation.
 
 ## Usage examples
 
-**`ai-to-user`:**
+**`ai-to-leader`:**
 
 ```
 # User:
 
-  /ai-to-human i have had a long day. what are you talking about
+  /ai-to-leader i have had a long day. what are you talking about
 
 
 # Assistant:
   
   We've been designing a plugin that makes AI's effective communicators.
 
-  It packages four skills: `ai-to-human`, `ai-to-ai`, `handoff`, and `peer-review`.
+  It packages four skills: `ai-to-leader`, `ai-to-delegated`, `handoff`, and `peer-review`.
 
   The four skills map cleanly to four critical interaction needs: clarity, delegation, continuity, and quality.
 
@@ -94,7 +94,7 @@ Start a new Pi session after installation.
   I can either package it as a single `interaction` skill, or as four separate skills. Which do you prefer?
 ```
 
-**`ai-to-ai`:**
+**`ai-to-delegated`:**
 ```
 # User:
 
@@ -102,7 +102,7 @@ Start a new Pi session after installation.
 
 # Assistant:
 
-  [loaded skill: `ai-to-ai`]
+  [loaded skill: `ai-to-delegated`]
 
   I’ll assign research, implementation and review to separate sub-agents. This will prevent biasing the process.
 
