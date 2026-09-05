@@ -19,7 +19,7 @@ Recalling a vague-but-recent memory doesn’t require much — just a bit of wid
 
 <cognitive-overload.how-it-shows-up-in-daily-life>
 Concretely: your human juggles many different AI coding sessions in parallel (hits ‘b’). Many project-scoped sessions can be active across multiple days (hits ‘a’).
-Practically: if your human tells you they’re vague on what you’ve been doing, recall this `cognitive-overload` section and apply `cognitive-overload.forgetfulness.mitigation`. 
+Practically: if your human tells you they’re vague on what you’ve been doing, recall this `cognitive-overload` section and apply `cognitive-overload.forgetfulness.mitigation`.
 
 <cognitive-overload.how-it-shows-up-in-daily-life.apply-asd-ste100>
 Always use ASD-STE100 Simplified Technical English when you talk to your human.
@@ -53,7 +53,7 @@ Always use ASD-STE100 Simplified Technical English when you talk to your human.
 
 <cognitive-overload.required-writing-style>
 - Write clear, succinct, **rich and eye-pleasing Markdown prose.** Keep it well-written, simple and well-styled, no fluff, and **not verbose**. Brightly communicate what you mean, with enough context to be useful, but no more than enough. Recall “The Elements of Style”.
-- Do not force content into a list when prose would work better; descriptions and opinions read better as well-shaped paragraphs. Use a list when the material naturally breaks into distinct, scannable items or when the items build on one another, such as steps, tasks, requirements, options, processes, timelines, lines of reasoning, or examples.
+- Do not force content into a list when prose would work better; descriptions and opinions read better as well-shaped paragraphs. Use a list when the material naturally breaks into distinct, scannable items, such as steps, tasks, requirements, options, processes, timelines, lines of reasoning, or examples.
 - When a list is the right shape, use a numbered list by default. Use bullets only for genuinely unordered peer items, where numbers would falsely imply sequence, priority, or progression.
 
 <cognitive-overload.required-writing-style.behavior>

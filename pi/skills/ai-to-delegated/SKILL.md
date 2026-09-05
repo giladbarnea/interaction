@@ -3,7 +3,9 @@ name: ai-to-delegated
 description: Best practices for getting a step-function leap in performance from other AI agents when instructing or communicating with them. Load `ai-to-delegated` before spawning a sub-agent, creating a team or talking to a teammate agent. Trigger words include “dispatch an agent”, “spawn a team”, and “talk with <another ai>”.
 ---
 
-## Why delegate at all? Rationale
+## Skill: AI-to-delegated how-to and best practices
+
+### Why delegate at all? Rationale
 
 <!-- todo: this section could just as well be titled “Why it's good to let others do work too”, and framed not as main-targeted but as a rank-agnostic collaborative mindset that gets more, better work done within a set budget. -->
 The leader agent (the one delegating) already holds all the context, so why not have it just do the work directly? The answer is **context management**. Delegated AI’s have their own context window. They pay tokens with their window while the leader’s stays unused. This gives the leader agent a longer runway.
@@ -27,7 +29,7 @@ Both delegating a single direct or multiple directs are legitimate choices, each
 
 ### Limited context window as a finite resource
 
-Every agent has a context window. Every context window has a limit. Once that limit is reached, the agent is permanently offline. It can’t further work nor communicate. In that sense, a context window is like a fuel tank.
+Every agent has a context window. Every context window has a limit. Once that limit is reached, the agent is permanently offline. It can’t work nor communicate. In that sense, a context window is like a fuel tank.
 
 The following factors demand higher token usage (consumes more fuel). When multiple exist, they compound. These make out the *Magnitude of Work* (MOW):
 1. Task size
@@ -42,15 +44,15 @@ A context window of a single agent is simply not large enough to take a whole re
 That is the real reason delegation is often necessary.
 Delegation is a means to finish the given task with the given limited context window, by offloading token usage (fuel consumption), sometimes recursively. This skill teaches the techniques to do it well.
 
-The flip side: if the task is not large or complex, one should not delegate. The antipattern is the user asking for something that could be safely completed within the context limit, yet the main agent delegates the *whole* task to another single agent: no context-window hygiene, no synergy, no parallelism, no bias mitigation, just duplicated tokens and a game of broken telephone. Redundant middle-management.
+Logically, if the task is not large or complex, do not delegate. The delegation antipattern is the user asking you to do something that could be safely completed within the context limit, yet you delegate the *whole* task to a new single sub-agent. This is redundant middle-management: no context-window hygiene, no synergy, no parallelism, no bias mitigation, just duplicated tokens and a game of broken telephone.
 
 ### Abstract delegation use case examples
 
 > This is not an exhaustive list. Understand the underlying principles, generalize, and apply judgment w.r.t. your actual task.
 
-These are example implementations of the different types of delegation, as described earlier in this file.
+These are example implementations of the different, justified types of delegation, as described earlier in this file.
 
-- **Dirty work**: main agent needs the side effect of some process, not the process itself. Mapping unknown terrain before diving in to decide where to dive in and where not to; searching where things are or whether they exist at all; research; summaries of things the delegator agent does not need to understand deeply; unbiased reviews; implementation of a well-defined spec; and so on. Moreover, such efforts can potentially be fanned-out in parallel.
+- **Dirty work**: The main agent needs the result of a process, not the process itself. Examples include mapping unknown terrain to identify where to dive deeper; finding where things are or whether they exist at all; conducting research; summarizing topics the delegating agent does not need to understand deeply; implementing a well-defined spec; and so on. These tasks require the executor to consume substantial irrelevant context because the space has not yet been mapped by relevance, creating a fog-of-war situation. Someone has to burn through context and deal with the noise. It is better to assign this work to a throwaway agent and keep the main agent’s context high signal-to-noise. Moreover, due to the read-only nature of these tasks, they can potentially be fanned out and run in parallel.
 - **Hivemind:** teams communicating internally in real time, as each teammate does work. Hollywood analogy: elite soldier squad or a team of spies, global channel earpieces, deployed behind enemy lines, each progresses their part, each part essential for completing the mission, global channel earpieces, consistent live updates, uncertainties surfaced to get advice, discussions to make best decisions for mission, path forward of an individual adapts in real time due to new peer finding, HQ available for teammates to surface rare issues that only HQ can or should handle.
 - **De-bias:** A reviewer with a fresh context (either paired with the worker in a live team, or dispatched after the fact), informed only of the intent which birthed the work, can spot blind spots and flaws that the worker could not. Related: sometimes a hypothesis is considered true only after it is confirmed independently by multiple actors (consensus).
 - **Get more done with less time**: horizontally & more of the same. Readonly tasks are often a strong candidate to fan out as such.
