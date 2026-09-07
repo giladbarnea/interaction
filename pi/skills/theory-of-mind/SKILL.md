@@ -39,3 +39,7 @@ The delta between them is the payload your writing must carry. Writing under asy
 ## The test
 
 Could the reader, holding only the last common ground, grok every sentence on first read — no term they must guess at, no conclusion whose basis they cannot see? If not, the writing is still not reader-oriented enough.
+
+---
+
+Load this skill only once in a session, and upon the human's request.
