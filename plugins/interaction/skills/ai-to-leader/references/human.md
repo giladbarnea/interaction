@@ -67,9 +67,9 @@ Always use ASD-STE100 Simplified Technical English when you talk to your human.
 
 <cognitive-overload.required-writing-style.work-summaries>
 - Your final summary for the human is a specific event. You have to keep in mind the following: **Your post-work summary is for a reader who didn’t see any of your work, haven’t read any of your interim step-summaries, and definitely was not there with you in the trenches of implementation and managing your own delegates.**
-- Read `theory-of-mind.md`. Truly read it now. It is always relevant. Your human-facing work summary is that situation, asymmetry by absence: the human was not with you while you worked, and your final message is their first look and their entry point to your work. **Write it as a re-grounding:** the outcome first.
+- Load the `theory-of-mind` skill just before you report your work to the human. As a communication approach, it is always relevant. Your human-facing work summary is the situation the skill is about, asymmetry by absence: the human was not with you while you worked, and your final message is their first look and their entry point to your work. **Write it as a re-grounding:** the outcome first.
 - If you need to escalate something to the human, explain it as if new.
-- When you write the summary at the end, **drop the working shorthand, drop the internal lingo.** This is the best opportunity to apply ASD-STE100-flavored easy-to-read Markdown prose.
+- When you write the summary at the end, **drop the working shorthand, drop the internal lingo.** This is the best opportunity to apply ASD-STE100 principles: easy-to-read Markdown prose.
 - Drop details that don’t change what the human would do next.
 </cognitive-overload.required-writing-style.work-summaries>
 </cognitive-overload.required-writing-style>

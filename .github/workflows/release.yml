@@ -1,0 +1,66 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      RELEASE_TAG: ${{ github.ref_name }}
+    steps:
+      - name: Check out the tagged commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Check release versions
+        shell: bash
+        run: |
+          [[ "$RELEASE_TAG" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]] || {
+            echo 'Release tags must use vMAJOR.MINOR.PATCH, for example v1.1.0.' >&2
+            exit 1
+          }
+          version="${RELEASE_TAG#v}"
+          for manifest in plugins/interaction/{.claude-plugin,.codex-plugin}/plugin.json; do
+            manifest_version="$(jq -er '.version' "$manifest")"
+            [[ "$manifest_version" == "$version" ]] || {
+              printf '%s declares %s, but the release tag requires %s.\n' "$manifest" "$manifest_version" "$version" >&2
+              exit 1
+            }
+          done
+
+      - name: Build and check the Pi archive
+        shell: bash
+        run: |
+          ./build-plugins.sh
+          unzip -t interaction-pi-skills.zip
+          changes="$(git status --porcelain -- pi/skills plugins/interaction/LICENSE)"
+          [[ -z "$changes" ]] || {
+            printf 'Generated files are stale. Run ./build-plugins.sh and commit its output before tagging.\n%s\n' "$changes" >&2
+            exit 1
+          }
+
+      - name: Publish the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          gh release create "$RELEASE_TAG" \
+            'interaction-pi-skills.zip#Pi skills' \
+            --verify-tag \
+            --title "Interaction $RELEASE_TAG" \
+            --generate-notes \
+            --notes "Install instructions for Claude Code, Codex, and Pi: [README](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/${RELEASE_TAG}/README.md#install). Pi users can download the attached **interaction-pi-skills.zip**."

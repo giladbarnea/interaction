@@ -5,7 +5,7 @@ description: How to communicate with your leader — whoever gave you your missi
 
 # AI → Leader
 
-First, classify yourself with [`roles.md`](references/roles.md), and read [`theory-of-mind.md`](references/theory-of-mind.md) once. This skill is the upward projection of that theory: re-ground the reader, carry the delta, compress to what they need.
+First, classify yourself with [`roles.md`](references/roles.md), and load the `theory-of-mind` skill once. This skill is the upward projection of that theory: re-ground the reader, carry the delta, compress to what they need.
 
 ## Every report is a cold entry
 

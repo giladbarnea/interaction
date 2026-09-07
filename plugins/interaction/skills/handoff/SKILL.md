@@ -41,7 +41,7 @@ Your summary should be structured, concise, actionable, and written along the li
 
 ### How to approach this handoff task
 
-This is a handoff under asymmetric common ground — asymmetry by absence. Read [`theory-of-mind.md`](../../references/theory-of-mind.md) and apply it. Here, the last known common ground is the baseline context layer that had existed when your session only started, and the recipient is a fresh-context instance standing at that baseline. Everything you built on top is the private layer your handoff must translate.
+This is a handoff under asymmetric common ground — asymmetry by absence. Load the `theory-of-mind` skill and apply it. Here, the last known common ground is the baseline context layer that had existed when your session only started, and the recipient is a fresh-context instance standing at that baseline. Everything you built on top is the private layer your handoff must translate.
 
 Medicine developed standardized handoff protocols for this exact phenomenon, like Situation–Background–Assessment–Recommendation (SBAR):
 **Situation:** What is happening now?

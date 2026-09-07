@@ -19,7 +19,7 @@ Hierarchy depth never matters. Every agent’s neighborhood looks the same: one 
 
 | question | if yes, load |
 | --- | --- |
-| — (always) | [`theory-of-mind.md`](./theory-of-mind.md) + [`ai-to-leader`](../skills/ai-to-leader/SKILL.md) |
+| — (always) | `theory-of-mind` skill + [`ai-to-leader`](../skills/ai-to-leader/SKILL.md) |
 | Is your leader a human? | [`ai-to-leader/references/human.md`](../skills/ai-to-leader/references/human.md) |
 | Do you dispatch subagents or teams? | [`ai-to-delegated`](../skills/ai-to-delegated/SKILL.md) |
 | Do you have teammates? | [`ai-to-delegated/references/peers.md`](../skills/ai-to-delegated/references/peers.md) |

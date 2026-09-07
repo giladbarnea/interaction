@@ -1,6 +1,6 @@
 ---
 name: theory-of-mind
-description: Explains how to re-ground readers after absence or context decay creates asymmetric common ground.
+description: Explains how to restore common ground with readers whose context differs from yours because of absence or memory decay.
 ---
 
 # Theory of Mind: Writing Under Asymmetric Common Ground

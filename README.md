@@ -8,8 +8,9 @@
 ![Works with Claude Code, Codex, and Pi](https://img.shields.io/badge/works%20with-Claude%20Code%20%7C%20Codex%20%7C%20Pi-111111?style=flat-square)
 [![MIT license](https://img.shields.io/badge/license-MIT-111111?style=flat-square)](LICENSE)
 
-## Four skills keep the work usable
+## Five skills keep the work usable
 
+- **`theory-of-mind`** restores common ground with readers whose context differs from yours.
 - **`ai-to-leader`** makes answers to your leader — human or AI — clear and simple.
 - **`ai-to-delegated`** makes delegation and collaboration work.
 - **`handoff`** carries decisions, tacit knowledge and "why" into the next session.
@@ -85,13 +86,13 @@ Start a new Pi session after installation.
   
   We've been designing a plugin that makes AI's effective communicators.
 
-  It packages four skills: `ai-to-leader`, `ai-to-delegated`, `handoff`, and `peer-review`.
+  It packages five skills: `theory-of-mind`, `ai-to-leader`, `ai-to-delegated`, `handoff`, and `peer-review`.
 
-  The four skills map cleanly to four critical interaction needs: clarity, delegation, continuity, and quality.
+  `theory-of-mind` provides the shared foundation. The other four skills cover reporting, delegation, handoffs, and reviews.
 
   The plugin is almost ready for release. I only need your decision on how to package it for Pi, since Pi does not support plugins natively.
   
-  I can either package it as a single `interaction` skill, or as four separate skills. Which do you prefer?
+  I can either package it as a single `interaction` skill, or as five separate skills. Which do you prefer?
 ```
 
 **`ai-to-delegated`:**
@@ -115,13 +116,31 @@ Start a new Pi session after installation.
 
 `interaction` has no MCP server, executable code, network calls, hooks, or background process. Your laptop can remain disappointed by the missing daemon.
 
-Pi installs each skill separately, because Pi does not support plugins natively. Its release contains self-contained references. See [`pi/README.md`](pi/README.md) for the layout.
+Pi installs five sibling skills without a plugin root. Install the full set: dependent skills load `theory-of-mind` by name rather than carrying reference copies. See [`pi/README.md`](pi/README.md) for the layout.
 
 ## Develop from one source
 
 `plugins/interaction` is the canonical content. `./build-plugins.sh` generates tracked `pi/skills` and ignored `interaction-pi-skills.zip`.
 
 The build also copies the root `LICENSE` into the plugin. The `.githooks/pre-commit` hook runs the build and stages generated tracked files.
+
+## Release from a version tag
+
+Pushing a `vMAJOR.MINOR.PATCH` tag starts the [release workflow](.github/workflows/release.yml).
+
+1. Set the same version in `plugins/interaction/.claude-plugin/plugin.json` and `plugins/interaction/.codex-plugin/plugin.json`.
+2. Run `./build-plugins.sh`.
+3. Commit the source, manifests, workflow, and generated files. Push the commit.
+4. Create and push the matching tag. For version `1.1.0`:
+
+   ```bash
+   git tag -a v1.1.0 -m "Interaction v1.1.0"
+   git push origin v1.1.0
+   ```
+
+CI checks that both manifest versions match the tag and that generated files are current. It then publishes **Interaction v1.1.0**, with generated release notes and `interaction-pi-skills.zip` attached.
+
+The workflow uses GitHub's built-in token. No extra secret is required. Branch pushes alone do not publish releases.
 
 ## License
 
