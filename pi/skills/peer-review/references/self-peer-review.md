@@ -16,7 +16,7 @@ The user has given me this task:
 
 I have attempted to complete it. It’s committed to { commit_sha }.
 
-@references/peer-review-instructions.md <work_to_review> <research_targets="Blast radius of {commit_sha}".>
+@peer-review-instructions.md <work_to_review> <research_targets="Blast radius of {commit_sha}".>
 
 { if original user task references skills }
     Load the referenced skills yourself for complete understanding:

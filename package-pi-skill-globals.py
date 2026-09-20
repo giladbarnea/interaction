@@ -21,6 +21,7 @@ REFERENCE_LINK_PATTERN = re.compile(
     r"(?P<destination><[^>\n]+>|[^\s\n]+)"
     r"(?P<suffix>.*$)"
 )
+AT_PATH_PATTERN = re.compile(r"(?<![\w/@])@(?P<destination>[^\s`<>\[\](){}\"',;]+)")
 FENCE_PATTERN = re.compile(r"^[ \t]{0,3}(?P<fence>`{3,}|~{3,})")
 GENERATED_GLOBAL_DIRECTORY_NAME = "_interaction"
 
@@ -72,7 +73,7 @@ def rewrite_markdown(
     markdown: str,
     rewrite_destination: Callable[[str], str],
 ) -> str:
-    """Rewrite Markdown link destinations outside fenced code blocks."""
+    """Rewrite Markdown links outside fences and @path references everywhere."""
     rewritten_lines: list[str] = []
     fence_character: str | None = None
     fence_length = 0
@@ -109,7 +110,10 @@ def rewrite_markdown(
         rewritten_line = INLINE_LINK_PATTERN.sub(replace_link, line)
         rewritten_lines.append(REFERENCE_LINK_PATTERN.sub(replace_link, rewritten_line))
 
-    return "".join(rewritten_lines)
+    return AT_PATH_PATTERN.sub(
+        lambda match: "@" + rewrite_destination(match.group("destination")),
+        "".join(rewritten_lines),
+    )
 
 
 def generated_target_for(
