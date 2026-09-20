@@ -114,7 +114,7 @@ Start a new Pi session after installation.
 
 ## Only Markdown
 
-`interaction` has no MCP server, executable code, network calls, hooks, or background process. Your laptop can remain disappointed by the missing daemon.
+The installed `interaction` plugin has no MCP server, executable code, network calls, hooks, or background process. Your laptop can remain disappointed by the missing daemon.
 
 Pi installs five sibling skills without a plugin root. Install the full set: dependent skills load `theory-of-mind` by name rather than carrying reference copies. See [`pi/README.md`](pi/README.md) for the layout.
 
@@ -122,7 +122,9 @@ Pi installs five sibling skills without a plugin root. Install the full set: dep
 
 `plugins/interaction` is the canonical content. `./build-plugins.sh` generates tracked `pi/skills` and ignored `interaction-pi-skills.zip`.
 
-The build also copies the root `LICENSE` into the plugin. The `.githooks/pre-commit` hook runs the build and stages generated tracked files.
+The build packages only the plugin-global files each Pi skill references. It preserves their plugin-relative paths, rewrites affected links, and rejects broken package graphs.
+
+The build also copies the root `LICENSE` into the plugin. The pre-commit hook runs the build and stages generated tracked files. See [`.githooks/README.md`](.githooks/README.md) for its behavior and setup.
 
 ## Release from a version tag
 

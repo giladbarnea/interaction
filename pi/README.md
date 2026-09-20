@@ -2,7 +2,9 @@
 
 Claude and Codex preserve the `interaction` plugin root. Their skills can read the shared plugin reference through a plugin-relative path.
 
-Pi discovers each skill directly under `~/.pi/agent/skills`. The plugin root does not exist there. This distribution copies the shared reference `roles.md` into dependent skills and rewrites plugin-reference paths.
+Pi discovers each skill directly under `~/.pi/agent/skills`. The plugin root does not exist there. The build copies each referenced plugin-global file into only the skills that need it, preserves its plugin-relative path, and rewrites affected links.
+
+Currently, `ai-to-delegated` receives `roles.md`. The build rejects missing relative references and paths that collide with skill-owned files.
 
 `theory-of-mind` is a standalone skill. Other skills load it by name, so install the full set together.
 
