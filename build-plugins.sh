@@ -6,6 +6,7 @@ readonly REPOSITORY_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly PLUGIN_DIRECTORY="$REPOSITORY_ROOT/plugins/interaction"
 readonly PI_SKILLS_DIRECTORY="$REPOSITORY_ROOT/pi/skills"
 readonly PI_ARCHIVE="$REPOSITORY_ROOT/interaction-pi-skills.zip"
+readonly GLOBAL_PACKAGER="$REPOSITORY_ROOT/package-pi-skill-globals.py"
 readonly ARCHIVE_TIMESTAMP="198001010000"
 readonly TEMPORARY_DIRECTORY="$(mktemp -d "${TMPDIR:-/tmp}/interaction-build.XXXXXX")"
 
@@ -16,12 +17,12 @@ fail() {
   exit 1
 }
 
-for command_name in rsync sed touch zip; do
+for command_name in python3 rsync touch zip; do
   command -v "$command_name" >/dev/null 2>&1 || fail "Missing command: $command_name"
 done
 
 [[ -d "$PLUGIN_DIRECTORY/skills" ]] || fail "Missing canonical skills directory: $PLUGIN_DIRECTORY/skills"
-[[ -f "$PLUGIN_DIRECTORY/roles.md" ]] || fail "Missing canonical roles map: $PLUGIN_DIRECTORY/roles.md"
+[[ -f "$GLOBAL_PACKAGER" ]] || fail "Missing Pi global-file packager: $GLOBAL_PACKAGER"
 [[ -f "$REPOSITORY_ROOT/LICENSE" ]] || fail "Missing repository license"
 
 mkdir -p "$TEMPORARY_DIRECTORY/skills"
@@ -36,22 +37,11 @@ for source_skill_directory in "$PLUGIN_DIRECTORY"/skills/*/; do
 
   mkdir -p "$generated_skill_directory"
   rsync -a --delete "$source_skill_directory"/ "$generated_skill_directory"/
-
-  grep -R -qF '../../roles.md' "$generated_skill_directory" || continue
-
-  sed 's#](skills/#](../#g' "$PLUGIN_DIRECTORY/roles.md" > "$generated_skill_directory/roles.md"
-  touch -r "$PLUGIN_DIRECTORY/roles.md" "$generated_skill_directory/roles.md"
-
-  while IFS= read -r markdown_file; do
-    grep -qF '../../roles.md' "$markdown_file" || continue
-    relative_markdown_file="${markdown_file#"$generated_skill_directory/"}"
-    sed 's#\.\./\.\./roles\.md#roles.md#g' "$markdown_file" > "$markdown_file.tmp"
-    mv "$markdown_file.tmp" "$markdown_file"
-    touch -r "${source_skill_directory%/}/$relative_markdown_file" "$markdown_file"
-  done < <(find "$generated_skill_directory" -type f -name '*.md' -print)
 done
 
 ((${#skill_names[@]} > 0)) || fail "No canonical skills found"
+
+python3 "$GLOBAL_PACKAGER" "$PLUGIN_DIRECTORY" "$TEMPORARY_DIRECTORY/skills"
 
 mkdir -p "$PI_SKILLS_DIRECTORY"
 rsync -a --delete "$TEMPORARY_DIRECTORY/skills"/ "$PI_SKILLS_DIRECTORY"/
@@ -64,9 +54,5 @@ find "$TEMPORARY_DIRECTORY/skills" -exec touch -t "$ARCHIVE_TIMESTAMP" {} +
   zip -q -r -X "$TEMPORARY_DIRECTORY/interaction-pi-skills.zip" "${skill_names[@]}" LICENSE
 )
 mv "$TEMPORARY_DIRECTORY/interaction-pi-skills.zip" "$PI_ARCHIVE"
-
-if grep -R -qF '../../roles.md' "$PI_SKILLS_DIRECTORY"; then
-  fail "Generated Pi skills still contain plugin-root role links"
-fi
 
 printf '✓ Built Claude/Codex plugin, Pi skills, and %s\n' "$(basename "$PI_ARCHIVE")"

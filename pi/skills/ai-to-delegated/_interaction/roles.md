@@ -21,15 +21,15 @@ Read every matching route, once while its contents remain in context. Reconsider
 
 | question | if yes, load |
 | --- | --- |
-| — (always) | [`theory-of-mind`](../theory-of-mind/SKILL.md) + [`ai-to-leader`](../ai-to-leader/SKILL.md) |
-| Is your leader a human? | [`ai-to-leader/references/human.md`](../ai-to-leader/references/human.md) |
-| Do you dispatch or supervise delegates? | [Delegate coordination](../ai-to-delegated/coordination/delegates.md) |
-| Do your delegates lead their own agents? | Also [leading leaders](../ai-to-delegated/coordination/leading-leaders.md) |
-| Do you have teammates? | [Peer coordination](../ai-to-delegated/coordination/peers.md) |
+| — (always) | [`theory-of-mind`](../../theory-of-mind/SKILL.md) + [`ai-to-leader`](../../ai-to-leader/SKILL.md) |
+| Is your leader a human? | [`ai-to-leader/references/human.md`](../../ai-to-leader/references/human.md) |
+| Do you dispatch or supervise delegates? | [Delegate coordination](../coordination/delegates.md) |
+| Do your delegates lead their own agents? | Also [leading leaders](../coordination/leading-leaders.md) |
+| Do you have teammates? | [Peer coordination](../coordination/peers.md) |
 
 Notes:
 
 - “Both” is not a special state. A mid-chain agent holds an upward edge and downward edges. It loads both skills and applies each to its own edge. The two spaces never conflict, because they govern different edges.
 - Narrow, in-and-out delegation still flips the dispatch bit. Whatever you delegated is not yours until it returns, regardless of how much of the work stays in your hands.
 
-For delegation planning, briefing, or named configurations, use the matching routes in [ai-to-delegated](../ai-to-delegated/SKILL.md).
+For delegation planning, briefing, or named configurations, use the matching routes in [ai-to-delegated](../SKILL.md).
