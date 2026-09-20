@@ -23,7 +23,6 @@ REFERENCE_LINK_PATTERN = re.compile(
 )
 AT_PATH_PATTERN = re.compile(r"(?<![\w/@])@(?P<destination>[^\s`<>\[\](){}\"',;]+)")
 FENCE_PATTERN = re.compile(r"^[ \t]{0,3}(?P<fence>`{3,}|~{3,})")
-GENERATED_GLOBAL_DIRECTORY_NAME = "_interaction"
 
 
 class PackagingError(RuntimeError):
@@ -60,8 +59,8 @@ def parse_local_destination(destination: str) -> tuple[str, str, str] | None:
 def format_destination(relative_path: str, query: str, fragment: str) -> str:
     """Format a rewritten Markdown link destination.
 
-    >>> format_destination("../_interaction/roles.md", "", "classifier")
-    '../_interaction/roles.md#classifier'
+    >>> format_destination("../roles.md", "", "classifier")
+    '../roles.md#classifier'
     """
     formatted_path = f"<{relative_path}>" if " " in relative_path else relative_path
     query_suffix = f"?{query}" if query else ""
@@ -137,9 +136,7 @@ def generated_target_for(
         )
 
     return (
-        generated_skill_directory
-        / GENERATED_GLOBAL_DIRECTORY_NAME
-        / source_target.relative_to(plugin_directory),
+        generated_skill_directory / source_target.relative_to(plugin_directory),
         True,
     )
 
@@ -200,14 +197,6 @@ def package_skill_globals(
     generated_skills_directory: Path,
 ) -> None:
     """Package the plugin-global files referenced by one Pi skill."""
-    generated_global_directory = (
-        generated_skill_directory / GENERATED_GLOBAL_DIRECTORY_NAME
-    )
-    if generated_global_directory.exists():
-        raise PackagingError(
-            f"Reserved generated directory already exists: {generated_global_directory}"
-        )
-
     markdown_queue: list[tuple[Path, Path]] = [
         (
             source_markdown_file,

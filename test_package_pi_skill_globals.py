@@ -28,23 +28,41 @@ class PackageAtPathsTests(unittest.TestCase):
             ],
             capture_output=True,
             text=True,
+            check=False,
         )
 
     def test_packages_transitive_at_paths_in_prose_and_code(self) -> None:
         (self.plugin / "roles.md").write_text("Read @shared.md\n")
         (self.plugin / "shared.md").write_text("# Shared\n")
-        markdown = "Read @../../roles.md\n`@../../roles.md`\n```text\n@../../roles.md\n```\n"
+        markdown = (
+            "Read @../../roles.md\n`@../../roles.md`\n```text\n@../../roles.md\n```\n"
+        )
         result = self.package(markdown)
         self.assertEqual(result.returncode, 0, result.stderr)
-        packaged = self.generated / "alpha" / "_interaction"
-        self.assertTrue((packaged / "roles.md").is_file(), "The referenced global file was not packaged")
-        self.assertTrue((packaged / "shared.md").is_file(), "The transitive global file was not packaged")
+        packaged = self.generated / "alpha"
+        self.assertTrue(
+            (packaged / "roles.md").is_file(),
+            "The referenced global file was not packaged",
+        )
+        self.assertTrue(
+            (packaged / "shared.md").is_file(),
+            "The transitive global file was not packaged",
+        )
         self.assertEqual((packaged / "roles.md").read_text(), "Read @shared.md\n")
         self.assertEqual((packaged / "shared.md").read_text(), "# Shared\n")
         self.assertEqual(
-            (self.generated / "alpha" / "SKILL.md").read_text(),
-            markdown.replace("../../roles.md", "_interaction/roles.md"),
+            (packaged / "SKILL.md").read_text(),
+            markdown.replace("../../roles.md", "roles.md"),
         )
+
+    def test_rejects_plugin_global_path_collisions(self) -> None:
+        (self.plugin / "roles.md").write_text("# Global roles\n")
+        (self.skill / "roles.md").write_text("# Skill roles\n")
+
+        result = self.package("Read @../../roles.md\n")
+
+        self.assertNotEqual(result.returncode, 0, result.stdout)
+        self.assertIn("collides", result.stderr)
 
     def test_rejects_missing_relative_at_path(self) -> None:
         result = self.package("Read @../../missing.md\n")

@@ -32,7 +32,7 @@ The admiral sets fleet-wide policy in one line ("all first mates on model X at t
 
 ## Commissioning a first mate
 
-1. Tell it to load [`roles.md`](../_interaction/roles.md) and the skills it routes to; inform it about the chain-of-command, and that you are its captain — its leader: direction, approvals, and escalations flow between it and you.
+1. Tell it to load [`roles.md`](../roles.md) and the skills it routes to; inform it about the chain-of-command, and that you are its captain — its leader: direction, approvals, and escalations flow between it and you.
 2. Give it the fleet's why, the slice that is its ship's mission, and the bottom-line added value the fleet needs back from it. Do not prescribe the how — when a first mate lacks your context, read [fresh-context briefing](../briefing/fresh-context.md). Its over-fitting warnings apply equally all the way down.
 
 ## How a captain communicates with the admiral

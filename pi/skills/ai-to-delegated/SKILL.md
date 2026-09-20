@@ -7,7 +7,7 @@ description: Best practices for getting a step-function leap in performance from
 
 Read all routes that match your current situation. Follow further links only when their stated condition applies.
 Read each file once while its contents remain in context. Reconsider the routes when your situation changes.
-For relationship definitions, see the plugin's [roles map](_interaction/roles.md).
+For relationship definitions, see the plugin's [roles map](roles.md).
 
 | Current situation | Read |
 | --- | --- |
