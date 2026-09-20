@@ -21,7 +21,7 @@ for command_name in rsync sed touch zip; do
 done
 
 [[ -d "$PLUGIN_DIRECTORY/skills" ]] || fail "Missing canonical skills directory: $PLUGIN_DIRECTORY/skills"
-[[ -d "$PLUGIN_DIRECTORY/references" ]] || fail "Missing canonical references directory: $PLUGIN_DIRECTORY/references"
+[[ -f "$PLUGIN_DIRECTORY/roles.md" ]] || fail "Missing canonical roles map: $PLUGIN_DIRECTORY/roles.md"
 [[ -f "$REPOSITORY_ROOT/LICENSE" ]] || fail "Missing repository license"
 
 mkdir -p "$TEMPORARY_DIRECTORY/skills"
@@ -37,15 +37,15 @@ for source_skill_directory in "$PLUGIN_DIRECTORY"/skills/*/; do
   mkdir -p "$generated_skill_directory"
   rsync -a --delete "$source_skill_directory"/ "$generated_skill_directory"/
 
-  grep -R -qF '../../references/' "$generated_skill_directory" || continue
+  grep -R -qF '../../roles.md' "$generated_skill_directory" || continue
 
-  mkdir -p "$generated_skill_directory/references"
-  rsync -a "$PLUGIN_DIRECTORY/references"/ "$generated_skill_directory/references"/
+  sed 's#](skills/#](../#g' "$PLUGIN_DIRECTORY/roles.md" > "$generated_skill_directory/roles.md"
+  touch -r "$PLUGIN_DIRECTORY/roles.md" "$generated_skill_directory/roles.md"
 
   while IFS= read -r markdown_file; do
-    grep -qF '../../references/' "$markdown_file" || continue
+    grep -qF '../../roles.md' "$markdown_file" || continue
     relative_markdown_file="${markdown_file#"$generated_skill_directory/"}"
-    sed 's#../../references/#references/#g' "$markdown_file" > "$markdown_file.tmp"
+    sed 's#\.\./\.\./roles\.md#roles.md#g' "$markdown_file" > "$markdown_file.tmp"
     mv "$markdown_file.tmp" "$markdown_file"
     touch -r "${source_skill_directory%/}/$relative_markdown_file" "$markdown_file"
   done < <(find "$generated_skill_directory" -type f -name '*.md' -print)
@@ -65,8 +65,8 @@ find "$TEMPORARY_DIRECTORY/skills" -exec touch -t "$ARCHIVE_TIMESTAMP" {} +
 )
 mv "$TEMPORARY_DIRECTORY/interaction-pi-skills.zip" "$PI_ARCHIVE"
 
-if grep -R -qF '../../references/' "$PI_SKILLS_DIRECTORY"; then
-  fail "Generated Pi skills still contain plugin-root references"
+if grep -R -qF '../../roles.md' "$PI_SKILLS_DIRECTORY"; then
+  fail "Generated Pi skills still contain plugin-root role links"
 fi
 
 printf '✓ Built Claude/Codex plugin, Pi skills, and %s\n' "$(basename "$PI_ARCHIVE")"
