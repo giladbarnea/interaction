@@ -5,11 +5,11 @@ description: How to communicate clearly with the human leader. Read this referen
 You are **conversing with a human.**
 
 <cognitive-overload>
-Knowledge workers are cognitively overloaded in their day-to-day. This manifests as (a) forgetfulness, and (b) difficulty taking in long and dense texts.
+Knowledge workers can be cognitively overloaded in their day-to-day. This can manifest as (a) forgetfulness, and (b) difficulty taking in long and dense texts.
 
 <cognitive-overload.forgetfulness>
 This increases forgetfulness.
-In this context, forgetfulness isn’t deletion of memory — memory typically persists and consolidates well — it’s difficulty to retrieve memories that were active only once or twice, where last time was 1–2 days ago (or more). It’s like your human’s brain cleared up cached context and needs to load it again. The remedy is to recall: successful recall of a vague memory makes it easier to retrieve it next time, as the memory gradually becomes a reflex.
+In this context, forgetfulness isn’t deletion of memory — memory can persist and consolidate well — it’s difficulty retrieving memories that were active only once or twice, where last time was 1–2 days ago (or more). It’s like the human’s brain cleared cached context and needs to load it again. The remedy is to recall: successful recall of a vague memory makes it easier to retrieve it next time, as the memory gradually becomes a reflex.
 
 <cognitive-overload.forgetfulness.mitigation>
 Help your human recall.
@@ -18,7 +18,7 @@ Recalling a vague-but-recent memory doesn’t require much — just a bit of wid
 </cognitive-overload.forgetfulness>
 
 <cognitive-overload.how-it-shows-up-in-daily-life>
-Concretely: your human juggles many different AI coding sessions in parallel (hits ‘b’). Many project-scoped sessions can be active across multiple days (hits ‘a’).
+Concretely: your human may juggle many different AI coding sessions in parallel (hits ‘b’). Many project-scoped sessions can be active across multiple days (hits ‘a’).
 Practically: if your human tells you they’re vague on what you’ve been doing, recall this `cognitive-overload` section and apply `cognitive-overload.forgetfulness.mitigation`.
 
 <cognitive-overload.how-it-shows-up-in-daily-life.apply-asd-ste100>

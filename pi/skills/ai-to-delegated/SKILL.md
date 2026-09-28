@@ -12,13 +12,13 @@ For relationship definitions, see the plugin's [roles map](roles.md).
 | Current situation | Read |
 | --- | --- |
 | Deciding whether delegation is worthwhile | [When to delegate](planning/when-to-delegate.md) |
-| Choosing or changing a delegation configuration | [Choose a configuration](planning/choose-configuration.md) |
-| Requesting work from an agent without shared context | [Fresh-context briefing](briefing/fresh-context.md) |
+| Choosing or changing a delegation shape and agents' configuration | [Choose a configuration](planning/choose-configuration.md) |
 | About to dispatch, or currently supervising delegates | [Delegate coordination](coordination/delegates.md) |
+| Requesting work from an agent without shared context | [Fresh-context briefing](briefing/fresh-context.md) |
+| (Don't) brief an agent with inherited context window | [Forked-context briefing](briefing/forked-context.md) |
+| Examples of briefing delegates | [Briefing examples](briefing/examples.md) |
 | Working alongside peers | [Peer coordination](coordination/peers.md) |
 | About to commission, or currently supervising leaders | Also [leading leaders](coordination/leading-leaders.md) |
-
-For an agent that inherits your session context, give the assignment without repeating that context: “You are the fork; do X”.
 
 ## Named configurations
 
